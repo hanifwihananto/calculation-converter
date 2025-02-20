@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculation Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculation Converter</h1>
+    <label for="vs-max">Vs (max):</label>
+    <input type="number" id="vs-max" value="36" readonly>
+
+    <label for="vs-min">Vs (min):</label>
+    <input type="number" id="vs-min" value="25" readonly>
+
+    <label for="vo">VO:</label>
+    <input type="number" id="vo" value="15" readonly>
+
+    <label for="io">IO:</label>
+    <input type="number" id="io" value="2.2" readonly>
+
+    <label for="fs">Switching Frequency (fs):</label>
+    <input type="number" id="fs" value="40000" readonly>
+
+    <label for="vf">VF:</label>
+    <input type="number" id="vf" value="1.5" readonly>
+
+    <label for="bmax">Bmax:</label>
+    <input type="number" id="bmax" value="0.25" readonly>
+
+    <label for="ac">AC:</label>
+    <input type="number" id="ac" value="1.96" readonly>
+
+    <label for="split">∑ Split:</label>
+    <input type="number" id="split" value="1.5" readonly>
+
+    <button onclick="calculateResults()">Calculate</button>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function calculateResults() {
+      const vsMax = parseFloat(document.getElementById('vs-max').value);
+      const vsMin = parseFloat(document.getElementById('vs-min').value);
+      const vo = parseFloat(document.getElementById('vo').value);
+      const io = parseFloat(document.getElementById('io').value);
+      const fs = parseFloat(document.getElementById('fs').value);
+      const vf = parseFloat(document.getElementById('vf').value);
+      const bmax = parseFloat(document.getElementById('bmax').value);
+      const ac = parseFloat(document.getElementById('ac').value);
+      const split = parseFloat(document.getElementById('split').value);
+
+      // Placeholder calculations (replace with actual formulas)
+      const dutyCycle = ((vo + vf) / vsMax) * 100;
+      const filterInductor = (vo * (vsMax - vo)) / (io * fs * vsMax);
+      const maxInductorCurrent = io * 1.2;
+      const windingNumber = Math.ceil(bmax * ac * 1000); // Simplified formula
+      const rmsCurrent = io * 0.9;
+      const wireSize = rmsCurrent * split;
+      const crossSectionalArea = wireSize * 0.01;
+      const wireDiameter = Math.sqrt((4 * crossSectionalArea) / Math.PI);
+      const outputCapacitance = 2 * io / fs;
+      const snubberCircuit = 0.5 * ac * split;
+
+      // Display results
+      document.getElementById('output').innerHTML = `
+        <h2>Results:</h2>
+        <p>Duty Cycle: ${dutyCycle.toFixed(2)}%</p>
+        <p>Filter Inductor: ${filterInductor.toFixed(2)} H</p>
+        <p>Maximum Inductor Current: ${maxInductorCurrent.toFixed(2)} A</p>
+        <p>Winding Number of Inductor: ${windingNumber}</p>
+        <p>Wire Size (Based on RMS Current): ${wireSize.toFixed(2)} mm²</p>
+        <p>Cross Sectional Area of Wire: ${crossSectionalArea.toFixed(4)} cm²</p>
+        <p>Diameter of Wire: ${wireDiameter.toFixed(4)} mm</p>
+        <p>Output Capacitance: ${outputCapacitance.toFixed(4)} F</p>
+        <p>Snubber Circuit: ${snubberCircuit.toFixed(4)} Ω</p>
+      `;
+    }
+  </script>
+</body>
+</html>
