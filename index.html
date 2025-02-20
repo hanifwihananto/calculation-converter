@@ -1,134 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculation Converter</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-    }
-    .container {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      max-width: 600px;
-      width: 100%;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    label {
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .output {
-      background-color: #f9f9f9;
-      padding: 10px;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATION CONVERTER</title>
+
+    <!-- LINK BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+    <!-- LINK FONT POPPINS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- LINK CSS -->
+     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-  <div class="container">
-    <h1>Calculation Converter</h1>
-    <label for="vs-max">Vs (max):</label>
-    <input type="number" id="vs-max" value="36" readonly>
+    <header class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <img src="img/logo-pens.png" alt="Logo Pens" class="logo-pens">    
+            </div>
+            <div class="col-7 col-sm-8">
+                <h1 class="h1">
+                    WEBSITE CALCULATION
+                    <br>
+                    BUCK CONVERTER
+                </h1>    
+            </div>
 
-    <label for="vs-min">Vs (min):</label>
-    <input type="number" id="vs-min" value="25" readonly>
+            <div class="col">
+                <img src="img/logo-himaelin.jpeg" alt="Logo HIMA ELIN" class="logo-himaelin">
+            </div>
+        </div>
+        
+    </header>
 
-    <label for="vo">VO:</label>
-    <input type="number" id="vo" value="15" readonly>
+    <main>
+        <section class="input">
+            <div class="container">
+                <div class="h2">
+                    <h2>INPUT PARAMETER</h2>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <!-- INPUT VIN -->
+                        <div class="row g-3 align-items-center">
+                            <div class="col-4">
+                              <label for="vin" class="col-form-label">Vin</label>
+                            </div>
+                            <div class="col-6">
+                              <input type="number" id="vin" class="form-control">
+                            </div>
+                            <div class="col-2">
+                              <span id="vin" class="form-text">
+                                V
+                              </span>
+                            </div>
+                        </div>
+                        
+                        <!-- INPUT VOUT -->
+                        <div class="row g-3 align-items-center">
+                            <div class="col-4">
+                              <label for="vout" class="col-form-label">Vout</label>
+                            </div>
+                            <div class="col-6">
+                              <input type="number" id="vout" class="form-control">
+                            </div>
+                            <div class="col-2">
+                              <span id="vout" class="form-text">
+                                V
+                              </span>
+                            </div>
+                        </div>
 
-    <label for="io">IO:</label>
-    <input type="number" id="io" value="2.2" readonly>
+                        <!-- INPUT IOUT -->
+                        <div class="row g-3 align-items-center">
+                            <div class="col-4">
+                              <label for="iot" class="col-form-label">Iot</label>
+                            </div>
+                            <div class="col-6">
+                              <input type="number" id="iot" class="form-control">
+                            </div>
+                            <div class="col-2">
+                              <span id="iot" class="form-text">
+                                A
+                              </span>
+                            </div>
+                        </div>
 
-    <label for="fs">Switching Frequency (fs):</label>
-    <input type="number" id="fs" value="40000" readonly>
+                    </div>
+                    <div class="col">
+                        <!-- INPUT FREKUENSI -->
+                        <div class="row g-3 align-items-center">
+                            <div class="col-4">
+                              <label for="frekuensi" class="col-form-label">Fs</label>
+                            </div>
+                            <div class="col-6">
+                              <input type="number" id="frekuensi" class="form-control" aria-describedby="frekuensi">
+                            </div>
+                            <div class="col-2">
+                              <span id="frekuensi" class="form-text">
+                                KHz
+                              </span>
+                            </div>
+                        </div>
 
-    <label for="vf">VF:</label>
-    <input type="number" id="vf" value="1.5" readonly>
+                        <!-- INPUT Vf -->
+                        <div class="row g-3 align-items-center">
+                            <div class="col-4">
+                              <label for="vf" class="col-form-label">Vf</label>
+                            </div>
+                            <div class="col-6">
+                              <input type="number" id="vf" class="form-control">
+                            </div>
+                            <div class="col-2">
+                              <span id="vf" class="form-text">
+                                V
+                              </span>
+                            </div>
+                        </div>
 
-    <label for="bmax">Bmax:</label>
-    <input type="number" id="bmax" value="0.25" readonly>
+                        <!-- INPUT TFALL -->
+                        <div class="row g-3 align-items-center">
+                            <div class="col-4">
+                              <label for="tfall" class="col-form-label">Tfall</label>
+                            </div>
+                            <div class="col-6">
+                              <input type="number" id="tfall" class="form-control">
+                            </div>
+                            <div class="col-2">
+                              <span id="tfall" class="form-text">
+                                s
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <label for="ac">AC:</label>
-    <input type="number" id="ac" value="1.96" readonly>
+            </div>
 
-    <label for="split">∑ Split:</label>
-    <input type="number" id="split" value="1.5" readonly>
+        </section>
 
-    <button onclick="calculateResults()">Calculate</button>
+        <section class="output">
 
-    <div class="output" id="output"></div>
-  </div>
+        </section>
+    </main>
 
-  <script>
-    function calculateResults() {
-      const vsMax = parseFloat(document.getElementById('vs-max').value);
-      const vsMin = parseFloat(document.getElementById('vs-min').value);
-      const vo = parseFloat(document.getElementById('vo').value);
-      const io = parseFloat(document.getElementById('io').value);
-      const fs = parseFloat(document.getElementById('fs').value);
-      const vf = parseFloat(document.getElementById('vf').value);
-      const bmax = parseFloat(document.getElementById('bmax').value);
-      const ac = parseFloat(document.getElementById('ac').value);
-      const split = parseFloat(document.getElementById('split').value);
+    <footer>
 
-      // Placeholder calculations (replace with actual formulas)
-      const dutyCycle = ((vo + vf) / vsMax) * 100;
-      const filterInductor = (vo * (vsMax - vo)) / (io * fs * vsMax);
-      const maxInductorCurrent = io * 1.2;
-      const windingNumber = Math.ceil(bmax * ac * 1000); // Simplified formula
-      const rmsCurrent = io * 0.9;
-      const wireSize = rmsCurrent * split;
-      const crossSectionalArea = wireSize * 0.01;
-      const wireDiameter = Math.sqrt((4 * crossSectionalArea) / Math.PI);
-      const outputCapacitance = 2 * io / fs;
-      const snubberCircuit = 0.5 * ac * split;
+    </footer>
 
-      // Display results
-      document.getElementById('output').innerHTML = `
-        <h2>Results:</h2>
-        <p>Duty Cycle: ${dutyCycle.toFixed(2)}%</p>
-        <p>Filter Inductor: ${filterInductor.toFixed(2)} H</p>
-        <p>Maximum Inductor Current: ${maxInductorCurrent.toFixed(2)} A</p>
-        <p>Winding Number of Inductor: ${windingNumber}</p>
-        <p>Wire Size (Based on RMS Current): ${wireSize.toFixed(2)} mm²</p>
-        <p>Cross Sectional Area of Wire: ${crossSectionalArea.toFixed(4)} cm²</p>
-        <p>Diameter of Wire: ${wireDiameter.toFixed(4)} mm</p>
-        <p>Output Capacitance: ${outputCapacitance.toFixed(4)} F</p>
-        <p>Snubber Circuit: ${snubberCircuit.toFixed(4)} Ω</p>
-      `;
-    }
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
