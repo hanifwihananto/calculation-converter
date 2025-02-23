@@ -19,7 +19,7 @@ h2 {
     font-size: 28px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
     .logo-pens{
         width: 60px;
     }
