@@ -1,39 +1,58 @@
 body {
-    font-family: Poppins, sans-serif;
+  font-family: Poppins, sans-serif;
+}
+
+.logo-pens {
+  width: 120px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.logo-himaelin {
+  width: 120px;
+}
+h2 {
+  text-align: center;
+  font-size: 28px;
+}
+
+.btn{
+  background-color: #497D74;
+}
+
+.btn:hover{
+  background-color: #71BBB2;
+}
+
+h2, label, .btn, .form-text {
+  color: #EFE9D5;
+}
+
+.input-container {
+  background-color: #27445D;
+}
+
+.output-container {
+  background-color: #27445D;
+}
+
+@media only screen and (max-width: 1200px) {
+  .logo-pens {
+      width: 50px;
   }
-  
-  .logo-pens{
-    width: 120px;
+
+  .h1 {
+      font-size: 20px;
   }
-  
-  h1 {
-    font-size: 32px;
+
+  .logo-himaelin {
+      width: 50px;
   }
-  
-  .logo-himaelin{
-    width: 120px;
-  }
-  
+
   h2 {
-    text-align: center;
-    font-size: 28px;
+      font-size: 16px;
   }
-  
-  @media only screen and (max-width: 1200px) {
-    .logo-pens{
-        width: 50px;
-    }
-  
-    .h1 {
-        font-size: 20px;
-    }
-  
-    .logo-himaelin{
-        width: 50px;
-    }
-  
-    h2 {
-        font-size: 16px;
-    }
-  
-  }
+
+}

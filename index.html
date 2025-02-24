@@ -25,10 +25,10 @@
 <body>
   <header class="container text-center">
     <div class="row align-items-center">
-      <div class="col col-xs-4 bg-success">
-        <img src="img/logo-pens.png" alt="Logo Pens" class="logo-pens bg-secondary">
+      <div class="col col-xs-4">
+        <img src="img/logo-pens.png" alt="Logo Pens" class="logo-pens">
       </div>
-      <div class="col-7 col-sm-8 col-xs-4 bg-secondary">
+      <div class="col-7 col-sm-8 col-xs-4">
         <h1 class="h1">
           WEBSITE CALCULATION
           <br>
@@ -45,7 +45,7 @@
 
   <main>
     <section class="input">
-      <div class="container rounded bg-secondary p-4">
+      <div class="container rounded p-4 input-container">
         <div class="h2">
           <h2>INPUT PARAMETER</h2>
         </div>
@@ -165,7 +165,7 @@
     </section>
 
     <section class="output">
-      <div class="container rounded p-4 bg-success mt-3">
+      <div class="container rounded p-4 mt-3 output-container">
         <div class="h2">
           <h2>
             OUTPUT PARAMETER
@@ -182,7 +182,7 @@
                   <label for="duty" class="col-form-label">Duty Cycle</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="duty" class="form-control" required="required" >
+                  <input type="number" id="duty" class="form-control" required="required" readonly>
                 </div>
                 <div class="col-1">
                   <span id="duty" class="form-text">
@@ -495,5 +495,7 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script src="sweetalert2.all.min.js"></script>
 </body>
+
 </html>
