@@ -1,215 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CALCULATION CONVERTER</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALCULATION CONVERTER</title>
 
-    <!-- LINK BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
-    <!-- LINK FONT POPPINS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- LINK BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- LINK CSS -->
-     <link rel="stylesheet" href="style.css">
+  <!-- LINK FONT POPPINS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- LINK CSS -->
+  <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
-    <header class="container text-center">
-        <div class="row align-items-center">
-            <div class="col col-xs-4">
-                <img src="img/logo-pens.png" alt="Logo Pens" class="logo-pens">    
-            </div>
-            <div class="col-7 col-sm-8 col-xs-4">
-                <h1 class="h1">
-                    WEBSITE CALCULATION
-                    <br>
-                    BUCK CONVERTER
-                </h1>    
-            </div>
+  <header class="container text-center">
+    <div class="row align-items-center">
+      <div class="col col-xs-4 bg-success">
+        <img src="img/logo-pens.png" alt="Logo Pens" class="logo-pens bg-secondary">
+      </div>
+      <div class="col-7 col-sm-8 col-xs-4 bg-secondary">
+        <h1 class="h1">
+          WEBSITE CALCULATION
+          <br>
+          BUCK CONVERTER
+        </h1>
+      </div>
 
-            <div class="col col-xs-4">
-                <img src="img/logo-himaelin.jpeg" alt="Logo HIMA ELIN" class="logo-himaelin">
-            </div>
+      <div class="col col-xs-4">
+        <img src="img/logo-himaelin.jpeg" alt="Logo HIMA ELIN" class="logo-himaelin">
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    <section class="input">
+      <div class="container rounded bg-secondary p-4">
+        <div class="h2">
+          <h2>INPUT PARAMETER</h2>
         </div>
-        
-    </header>
-
-    <main>
-        <section class="input">
-            <div class="container rounded bg-secondary p-4">
-                <div class="h2">
-                    <h2>INPUT PARAMETER</h2>
+        <!-- FORM INPUT -->
+        <form method="post" class="form-input" id="formInput">
+          <div class="row text-center">
+            <div class="col">
+              <!-- INPUT VIN -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="vin" class="col-form-label">Vin</label>
                 </div>
-                <div class="row text-center">
-                    <div class="col">
-                        <!-- INPUT VIN -->
-                        <div class="row g-3 align-items-center mb-2">
-                            <div class="col-4">
-                              <label for="vin" class="col-form-label">Vin</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="number" id="vin" class="form-control">
-                            </div>
-                            <div class="col-2">
-                              <span id="vin" class="form-text">
-                                V
-                              </span>
-                            </div>
-                        </div>
-                        
-                        <!-- INPUT VOUT -->
-                        <div class="row g-3 align-items-center mb-2">
-                            <div class="col-4">
-                              <label for="vout" class="col-form-label">Vout</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="number" id="vout" class="form-control">
-                            </div>
-                            <div class="col-2">
-                              <span id="vout" class="form-text">
-                                V
-                              </span>
-                            </div>
-                        </div>
-
-                        <!-- INPUT IOUT -->
-                        <div class="row g-3 align-items-center ">
-                            <div class="col-4">
-                              <label for="iot" class="col-form-label">Iot</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="number" id="iot" class="form-control">
-                            </div>
-                            <div class="col-2">
-                              <span id="iot" class="form-text">
-                                A
-                              </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <!-- INPUT FREKUENSI -->
-                        <div class="row g-3 align-items-center mb-2">
-                            <div class="col-4">
-                              <label for="frekuensi" class="col-form-label">Fs</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="number" id="frekuensi" class="form-control" aria-describedby="frekuensi">
-                            </div>
-                            <div class="col-2">
-                              <span id="frekuensi" class="form-text">
-                                KHz
-                              </span>
-                            </div>
-                        </div>
-
-                        <!-- INPUT Vf -->
-                        <div class="row g-3 align-items-center mb-2">
-                            <div class="col-4">
-                              <label for="vf" class="col-form-label">Vf</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="number" id="vf" class="form-control">
-                            </div>
-                            <div class="col-2">
-                              <span id="vf" class="form-text">
-                                V
-                              </span>
-                            </div>
-                        </div>
-
-                        <!-- INPUT TFALL -->
-                        <div class="row g-3 align-items-center">
-                            <div class="col-4">
-                              <label for="tfall" class="col-form-label">Tfall</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="number" id="tfall" class="form-control">
-                            </div>
-                            <div class="col-2">
-                              <span id="tfall" class="form-text">
-                                s
-                              </span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-6">
+                  <input type="number" id="vin" class="form-control" required="required">
                 </div>
-
-                <div class="container text-center mt-4">
-                  <div class="row align-items-center">
-                    <div class="col">
-                      <button type="button" class="btn btn-primary">RESET</button>                      
-                    </div>
-                    <div class="col">
-                      <button type="button" class="btn btn-primary">DEFAULT</button>
-                    </div>
-                    <div class="col">
-                      <button type="button" class="btn btn-primary">CALCULATION</button>
-                    </div>
-                  </div>
+                <div class="col-2">
+                  <span id="vin" class="form-text">
+                    V
+                  </span>
                 </div>
+              </div>
+
+              <!-- INPUT VOUT -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="vout" class="col-form-label">Vout</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="vout" class="form-control" required="required">
+                </div>
+                <div class="col-2">
+                  <span id="vout" class="form-text">
+                    V
+                  </span>
+                </div>
+              </div>
+
+              <!-- INPUT IOUT -->
+              <div class="row g-3 align-items-center ">
+                <div class="col-4">
+                  <label for="iot" class="col-form-label">Iot</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="iout" class="form-control" required="required">
+                </div>
+                <div class="col-2">
+                  <span id="iout" class="form-text">
+                    A
+                  </span>
+                </div>
+              </div>
+
             </div>
-        </section>
-
-        <section class="output">
-          <div class="container rounded p-4 bg-success mt-3">
-            <div class="h2">
-              <h2>
-                OUTPUT PARAMETER
-              </h2>
-            </div>
-
-            <div class="row gx-5">
-              <div class="col-md-3 col-xs-12">
-
-                <!-- OUTPUT DUTY CYCLE -->
-                <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="duty" class="col-form-label">Duty Cycle</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="duty" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="duty" class="form-text">
-                      %
-                    </span>
-                  </div>
+            <div class="col">
+              <!-- INPUT FREKUENSI -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="fs" class="col-form-label">Fs</label>
                 </div>
-              
+                <div class="col-6">
+                  <input type="number" id="fs" class="form-control" required="required"">
+                </div>
+                <div class=" col-2">
+                  <span id="fs" class="form-text">
+                    KHz
+                  </span>
+                </div>
+              </div>
+
+              <!-- INPUT Vf -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="vf" class="col-form-label">Vf</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="vf" class="form-control required=" required"">
+                </div>
+                <div class="col-2">
+                  <span id="vf" class="form-text">
+                    V
+                  </span>
+                </div>
+              </div>
+
+              <!-- INPUT TFALL -->
+              <div class="row g-3 align-items-center">
+                <div class="col-4">
+                  <label for="tfall" class="col-form-label">Tfall</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="tfall" class="form-control" required="required">
+                </div>
+                <div class="col-2">
+                  <span id="tfall" class="form-text">
+                    ns
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="container text-center mt-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <button type="button" class="btn btn-primary" id="reset">RESET</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary" id="set">DEFAULT</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary" id="cal">CALCULATION</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="output">
+      <div class="container rounded p-4 bg-success mt-3">
+        <div class="h2">
+          <h2>
+            OUTPUT PARAMETER
+          </h2>
+        </div>
+        <!-- FORM OUTPUT -->
+        <form method="post" class="form-output" id="formOutput">
+          <div class="row gx-5">
+            <div class="col-md-3 col-xs-12">
+
+              <!-- OUTPUT DUTY CYCLE -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5">
+                  <label for="duty" class="col-form-label">Duty Cycle</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="duty" class="form-control" required="required" >
+                </div>
+                <div class="col-1">
+                  <span id="duty" class="form-text">
+                    %
+                  </span>
+                </div>
+              </div>
+
               <!-- OUTPUT DELTA IL -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="del-il" class="col-form-label">DIL</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="del-il" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="del-il" class="form-text">
-                      A
-                    </span>
-                  </div>
+                <div class="col-5">
+                  <label for="delIl" class="col-form-label">&#916IL</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="delIl" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="delIl" class="form-text">
+                    A
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT L -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="L" class="col-form-label">L</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="L" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="L" class="form-text">
-                      uH
-                    </span>
-                  </div>
+                <div class="col-5">
+                  <label for="L" class="col-form-label">L</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="L" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="L" class="form-text">
+                    &microH
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT R -->
@@ -222,7 +231,7 @@
                 </div>
                 <div class="col-1">
                   <span id="R" class="form-text">
-                    Ohm
+                    &#x2126
                   </span>
                 </div>
 
@@ -231,77 +240,77 @@
               <!-- OUTPUT IL (AVG)) -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="il-avg" class="col-form-label">IL(avg)</label>
+                  <label for="ilAvg" class="col-form-label">IL(avg)</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="il-avg" class="form-control" readonly>
+                  <input type="number" id="ilAvg" class="form-control" readonly>
                 </div>
                 <div class="col-1">
-                  <span id="il-avg" class="form-text">
+                  <span id="ilAvg" class="form-text">
                     A
                   </span>
                 </div>
               </div>
 
+            </div>
+
+            <div class="col-md-3 col-xs-12">
+              <!-- OUTPUT IL(MAX) -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5">
+                  <label for="ilMax" class="col-form-label">IL(max)</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="ilMax" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="ilMax" class="form-text">
+                    A
+                  </span>
+                </div>
               </div>
 
-              <div class="col-md-3 col-xs-12">
-                <!-- OUTPUT IL(MAX) -->
-                <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="il-max" class="col-form-label">IL(max)</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="il-max" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="il-max" class="form-text">
-                      A
-                    </span>
-                  </div>
-              </div>
-              
               <!-- OUTPUT N -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="n" class="col-form-label">n</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="n" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="n" class="form-text">
-                      
-                    </span>
-                  </div>
+                <div class="col-5">
+                  <label for="n" class="col-form-label">n</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="n" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="n" class="form-text">
+
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT IL(rms) -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="il-rms" class="col-form-label">I(rms)L</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="il-rms" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="il-rms" class="form-text">
-                      A
-                    </span>
-                  </div>
+                <div class="col-5">
+                  <label for="ilRms" class="col-form-label">I(rms)L</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="ilRms" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="ilRms" class="form-text">
+                    A
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT QW(T) -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="qw-t" class="col-form-label">qw(t)</label>
+                  <label for="qwt" class="col-form-label">qw(t)</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="qw-t" class="form-control" readonly>
+                  <input type="number" id="qwt" class="form-control" readonly>
                 </div>
                 <div class="col-1">
-                  <span id="qw-t" class="form-text">
-                    mm2
+                  <span id="qwt" class="form-text">
+                    mm&sup2
                   </span>
                 </div>
 
@@ -310,65 +319,65 @@
               <!-- OUTPUT DW(T) -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="dw-t" class="col-form-label">dw(t)</label>
+                  <label for="dwt" class="col-form-label">dw(t)</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="dw-t" class="form-control" readonly>
+                  <input type="number" id="dwt" class="form-control" readonly>
                 </div>
                 <div class="col-1">
-                  <span id="dw-t" class="form-text">
-                    mm2
+                  <span id="dwt" class="form-text">
+                    mm&sup2
                   </span>
                 </div>
               </div>
 
+            </div>
+
+            <div class="col-md-3 col-xs-12">
+
+              <!-- OUTPUT IL(rms) split -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5">
+                  <label for="ilRmsSplit" class="col-form-label">IL(rms)split</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="ilRmsSplit" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="ilRmsSplit" class="form-text">
+                    A
+                  </span>
+                </div>
               </div>
 
-              <div class="col-md-3 col-xs-12">
-                 
-                <!-- OUTPUT IL(rms) split -->
-                <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="il-rms-split" class="col-form-label">IL(rms)split</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="il-rms-split" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="il-rms-split" class="form-text">
-                      A
-                    </span>
-                  </div>
-              </div>
-              
               <!-- OUTPUT QW(T) SPLIT -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="qw-t-split" class="col-form-label">qw(t)split</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="qw-t-split" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="qw-t-split" class="form-text">
-                      mm2
-                    </span>
-                  </div>
+                <div class="col-5">
+                  <label for="qwtsplit" class="col-form-label">qw(t)split</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="qwtsplit" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="qwtsplit" class="form-text">
+                    mm&sup2
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT DW(T) SPLIT -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5">
-                    <label for="dw-t-split" class="col-form-label">dw(t)split</label>
-                  </div>
-                  <div class="col-6">
-                    <input type="number" id="dw-t-split" class="form-control" readonly>
-                  </div>
-                  <div class="col-1">
-                    <span id="dw-t-split" class="form-text">
-                      mm2
-                    </span>
-                  </div>
+                <div class="col-5">
+                  <label for="dwtsplit" class="col-form-label">dw(t)split</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="dwtsplit" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="dwtsplit" class="form-text">
+                    mm&sup2
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT KBOB -->
@@ -390,65 +399,65 @@
               <!-- OUTPUT TOTAL WIRE -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="total-wire" class="col-form-label">Total Wire</label>
+                  <label for="totalWire" class="col-form-label">Total Wire</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="total-wire" class="form-control" readonly>
+                  <input type="number" id="totalWire" class="form-control" readonly>
                 </div>
                 <div class="col-1">
-                  <span id="total-wire" class="form-text">
+                  <span id="totalWire" class="form-text">
                     m
                   </span>
                 </div>
               </div>
-                
+
+            </div>
+
+            <div class="col-md-3 col-xs-12">
+
+              <!-- OUTPUT DELTA VO -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5 col-md-3">
+                  <label for="delVo" class="col-form-label">&#916Vo</label>
+                </div>
+                <div class="col-6 col-md-6">
+                  <input type="number" id="delVo" class="form-control" readonly>
+                </div>
+                <div class="col-1 col-md-3">
+                  <span id="delVo" class="form-text">
+                    V
+                  </span>
+                </div>
               </div>
 
-              <div class="col-md-3 col-xs-12">
-                  
-                <!-- OUTPUT DELTA VO -->
-                <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5 col-md-3">
-                    <label for="del-vo" class="col-form-label">DVo</label>
-                  </div>
-                  <div class="col-6 col-md-6">
-                    <input type="number" id="del-vo" class="form-control" readonly>
-                  </div>
-                  <div class="col-1 col-md-3">
-                    <span id="del-vo" class="form-text">
-                      V
-                    </span>
-                  </div>
-              </div>
-              
               <!-- OUTPUT Co -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5 col-md-3">
-                    <label for="co" class="col-form-label">Co</label>
-                  </div>
-                  <div class="col-6 col-md-6">
-                    <input type="number" id="Co" class="form-control" readonly>
-                  </div>
-                  <div class="col-1 col-md-3">
-                    <span id="co" class="form-text">
-                      uF
-                    </span>
-                  </div>
+                <div class="col-5 col-md-3">
+                  <label for="co" class="col-form-label">Co</label>
+                </div>
+                <div class="col-6 col-md-6">
+                  <input type="number" id="Co" class="form-control" readonly>
+                </div>
+                <div class="col-1 col-md-3">
+                  <span id="co" class="form-text">
+                    &microF
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT CS -->
               <div class="row g-3 align-items-center mb-2">
-                  <div class="col-5 col-md-3">
-                    <label for="cs" class="col-form-label">Cs</label>
-                  </div>
-                  <div class="col-6 col-md-6">
-                    <input type="number" id="cs" class="form-control" readonly>
-                  </div>
-                  <div class="col-1 col-md-3">
-                    <span id="cs" class="form-text">
-                      nF
-                    </span>
-                  </div>
+                <div class="col-5 col-md-3">
+                  <label for="cs" class="col-form-label">Cs</label>
+                </div>
+                <div class="col-6 col-md-6">
+                  <input type="number" id="cs" class="form-control" readonly>
+                </div>
+                <div class="col-1 col-md-3">
+                  <span id="cs" class="form-text">
+                    nF
+                  </span>
+                </div>
               </div>
 
               <!-- OUTPUT RS -->
@@ -461,24 +470,30 @@
                 </div>
                 <div class="col-1 col-md-3">
                   <span id="rs" class="form-text">
-                    ohm
+                    &#x2126
                   </span>
                 </div>
               </div>
-              </div>
             </div>
-
           </div>
-        </section>
-    </main>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <footer>
+  <footer>
 
-    </footer>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>

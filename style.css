@@ -1,39 +1,39 @@
 body {
     font-family: Poppins, sans-serif;
-}
-
-.logo-pens{
+  }
+  
+  .logo-pens{
     width: 120px;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 32px;
-}
-
-.logo-himaelin{
+  }
+  
+  .logo-himaelin{
     width: 120px;
-}
-
-h2 {
+  }
+  
+  h2 {
     text-align: center;
     font-size: 28px;
-}
-
-@media only screen and (max-width: 1200px) {
+  }
+  
+  @media only screen and (max-width: 1200px) {
     .logo-pens{
         width: 50px;
     }
-
+  
     .h1 {
         font-size: 20px;
     }
-
+  
     .logo-himaelin{
         width: 50px;
     }
-
+  
     h2 {
         font-size: 16px;
     }
-
+  
   }
