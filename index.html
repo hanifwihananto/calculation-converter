@@ -40,7 +40,6 @@
         <img src="img/logo-himaelin.jpeg" alt="Logo HIMA ELIN" class="logo-himaelin">
       </div>
     </div>
-
   </header>
 
   <main>
@@ -52,17 +51,33 @@
         <!-- FORM INPUT -->
         <form method="post" class="form-input" id="formInput">
           <div class="row text-center">
-            <div class="col">
-              <!-- INPUT VIN -->
+            
+            <div class="col-md-4 col-xs-12 mb-2">
+              <!-- INPUT VIN MAX -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-4">
-                  <label for="vin" class="col-form-label">Vin</label>
+                  <label for="vsMax" class="col-form-label">Vs(max)</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="vin" class="form-control" required="required">
+                  <input type="number" id="vsMax" class="form-control" required="required">
                 </div>
                 <div class="col-2">
-                  <span id="vin" class="form-text">
+                  <span id="vsMax" class="form-text">
+                    V
+                  </span>
+                </div>
+              </div>
+
+              <!-- INPUT VIN MIN -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="vsMin" class="col-form-label">Vs(min)</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="vsMin" class="form-control" required="required">
+                </div>
+                <div class="col-2">
+                  <span id="vsMin" class="form-text">
                     V
                   </span>
                 </div>
@@ -84,7 +99,7 @@
               </div>
 
               <!-- INPUT IOUT -->
-              <div class="row g-3 align-items-center ">
+              <div class="row g-3 align-items-center mb-2">
                 <div class="col-4">
                   <label for="iot" class="col-form-label">Iot</label>
                 </div>
@@ -97,13 +112,13 @@
                   </span>
                 </div>
               </div>
-
             </div>
-            <div class="col">
+
+            <div class="col-md-4 col-xs-12 mb-2">
               <!-- INPUT FREKUENSI -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-4">
-                  <label for="fs" class="col-form-label">Fs</label>
+                  <label for="fs" class="col-form-label">fs</label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="fs" class="form-control" required="required"">
@@ -121,7 +136,7 @@
                   <label for="vf" class="col-form-label">Vf</label>
                 </div>
                 <div class="col-6">
-                  <input type="number" id="vf" class="form-control required=" required"">
+                  <input type="number" id="vf" class="form-control" required="required">
                 </div>
                 <div class="col-2">
                   <span id="vf" class="form-text">
@@ -129,6 +144,68 @@
                   </span>
                 </div>
               </div>
+              <!-- INPUT B MAX -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="bmax" class="col-form-label">Bmax</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="bmax" class="form-control" required="required">
+                </div>
+                <div class=" col-2">
+                  <span id="bmax" class="form-text">
+                    Tesla
+                  </span>
+                </div>
+              </div>
+
+              <!-- INPUT AC -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="ac" class="col-form-label">Ac</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="ac" class="form-control" required="required">
+                </div>
+                <div class="col-2">
+                  <span id="ac" class="form-text">
+                    cm&sup2
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-xs-12 mb-2">
+              <!-- INPUT SIGMA SPLIT -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="split" class="col-form-label"> &Sigma; Split</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="split" class="form-control" required="required">
+                </div>
+                <div class=" col-2">
+                  <span id="split" class="form-text">
+                    
+                  </span>
+                </div>
+              </div>
+
+               
+              <!-- INPUT Pcu -->
+              <!-- <div class="row g-3 align-items-center mb-2">
+                <div class="col-4">
+                  <label for="pcu" class="col-form-label">Pcu</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="pcu" class="form-control" required="required">
+                </div>
+                <div class="col-2">
+                  <span id="pcu" class="form-text">
+                    W
+                  </span>
+                </div>
+              </div> -->
 
               <!-- INPUT TFALL -->
               <div class="row g-3 align-items-center">
@@ -144,7 +221,10 @@
                   </span>
                 </div>
               </div>
+              
+
             </div>
+
           </div>
         </form>
 
@@ -326,7 +406,7 @@
                 </div>
                 <div class="col-1">
                   <span id="dwt" class="form-text">
-                    mm&sup2
+                    mm
                   </span>
                 </div>
               </div>
@@ -375,7 +455,7 @@
                 </div>
                 <div class="col-1">
                   <span id="dwtsplit" class="form-text">
-                    mm&sup2
+                    mm
                   </span>
                 </div>
               </div>

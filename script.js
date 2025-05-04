@@ -12,18 +12,19 @@ reset.addEventListener("click", () => {
 });
 
 // INPUT
-let vinV = document.querySelector('#vin');
+let vinV = document.querySelector('#vsMax');
+let vinMin = document.querySelector('#vsMin');
 let voutV = document.querySelector('#vout');
 let ioutV = document.querySelector('#iout');
 let fsV = document.querySelector('#fs'); // Convert kHz to Hz
 let vfV = document.querySelector('#vf');
+let bmaxV = document.querySelector('#bmax');
+let acV = document.querySelector('#ac');
 let tfallV = document.querySelector('#tfall');
+let splitV = document.querySelector('#split');
 
 // OUTPUT
-let bmax = 0.25;
-let ac = 1.96;
 let j = 4.5;
-let split = 1.5;
 let dbob = 0.17;
 let duty = document.querySelector('#duty');
 let delIl = document.querySelector('#delIl');
@@ -48,11 +49,15 @@ let Rs = document.querySelector('#rs');
 // BTN DEFAULT
 set.addEventListener("click", () => {
   vinV.value = 36;
+  vinMin.value = 25;
   voutV.value = 15;
   ioutV.value = 2.2;
   fsV.value = 40;
   vfV.value = 1.5;
-  tfallV.value = 25;
+  tfallV.value = 58;
+  bmaxV.value = 0.25;
+  acV.value = 1.96;
+  splitV.value = 10;
 });
 
 // BTN CALCULATION
@@ -77,6 +82,9 @@ cal.addEventListener("click", () => {
   let fs = parseFloat(fsV.value) * 1000;
   let vf = parseFloat(vfV.value);
   let tfall = parseFloat(tfallV.value) / 1000000000;
+  let bmax = parseFloat(bmaxV.value);
+  let ac = parseFloat(acV.value);
+  let split = parseFloat(splitV.value);
 
   let d = (vout / vin);
   let r = vout / iout;
