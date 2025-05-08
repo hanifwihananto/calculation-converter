@@ -22,10 +22,11 @@ let bmaxV = document.querySelector('#bmax');
 let acV = document.querySelector('#ac');
 let tfallV = document.querySelector('#tfall');
 let splitV = document.querySelector('#split');
+let riV = document.querySelector('#ri');
 
 // OUTPUT
 let j = 4.5;
-let dbob = 0.17;
+let dbob = 1.7;
 let duty = document.querySelector('#duty');
 let delIl = document.querySelector('#delIl');
 let L = document.querySelector('#L');
@@ -58,6 +59,7 @@ set.addEventListener("click", () => {
   bmaxV.value = 0.25;
   acV.value = 1.96;
   splitV.value = 10;
+  riV.value = 20;
 });
 
 // BTN CALCULATION
@@ -85,11 +87,12 @@ cal.addEventListener("click", () => {
   let bmax = parseFloat(bmaxV.value);
   let ac = parseFloat(acV.value);
   let split = parseFloat(splitV.value);
+  let ri = parseFloat(riV.value)/100;
 
   let d = (vout / vin);
   let r = vout / iout;
   let ilavg = vout / r;
-  let dil = 0.2 * ilavg;
+  let dil = ri * ilavg;
   let l = (1 / fs) * (vin - vout) * ((vout + vf) / (vin + vf)) * (1 / dil) * 1000000;
   let ilmax = ilavg + (dil / 2);
   let n = (((l / 1000000) * ilmax) / (bmax * ac)) * Math.pow(10, 4);
@@ -100,7 +103,7 @@ cal.addEventListener("click", () => {
   let qwtsplit = ilrmssplit / j;
   let dwtsplit = Math.sqrt((4 / Math.PI) * qwtsplit);
   let kbob = Math.PI * dbob;
-  let totalwire = (n * kbob * split) + 0.4 * (n * kbob * split);
+  let totalwire = ((n * kbob * split) + 0.4 * (n * kbob * split))/100;
   let dvo = 0.001 * vout;
   let co = (dil / (8 * fs * dvo)) * 1000000;
   let cs = ((iout * tfall) / (2 * vin)) * Math.pow(10, 9);
@@ -109,7 +112,7 @@ cal.addEventListener("click", () => {
 
 
   duty.value = d.toFixed(4) * 100;
-  delIl.value = dil.toFixed(2);
+  delIl.value = dil.toFixed(3);
   L.value = l.toFixed(1);
   R.value = r.toFixed(4);
   ilAvg.value = ilavg.toFixed(2);
