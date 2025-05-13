@@ -23,6 +23,7 @@ let acV = document.querySelector('#ac');
 let tfallV = document.querySelector('#tfall');
 let splitV = document.querySelector('#split');
 let riV = document.querySelector('#ri');
+let kgrefV = document.querySelector('#kgref');
 
 // OUTPUT
 let j = 4.5;
@@ -42,6 +43,11 @@ let qwTSplit = document.querySelector('#qwtsplit');
 let dwTSplit = document.querySelector('#dwtsplit');
 let kBob = document.querySelector('#kbob');
 let totalWire = document.querySelector('#totalWire');
+let KGcal = document.querySelector('#kgcal');
+let KGKGcal = document.querySelector('#kgkal');
+let Lg = document.querySelector('#lg');
+let Ion = document.querySelector('#ion');
+let Voff = document.querySelector('#voff');
 let delVo = document.querySelector('#delVo');
 let Co = document.querySelector('#Co');
 let Cs = document.querySelector('#cs');
@@ -60,6 +66,7 @@ set.addEventListener("click", () => {
   acV.value = 1.96;
   splitV.value = 10;
   riV.value = 20;
+  kgrefV.value = 0.820;
 });
 
 // BTN CALCULATION
@@ -88,6 +95,11 @@ cal.addEventListener("click", () => {
   let ac = parseFloat(acV.value);
   let split = parseFloat(splitV.value);
   let ri = parseFloat(riV.value)/100;
+  let p = 1.74 * Math.pow(10, -6);
+  let u0 = 4 * Math.PI * Math.pow(10, -7);
+  let Ku = 0.5; 
+  let pcu = 1.5;
+  let kgref = parseFloat(kgrefV.value);
 
   let d = (vout / vin);
   let r = vout / iout;
@@ -104,10 +116,17 @@ cal.addEventListener("click", () => {
   let dwtsplit = Math.sqrt((4 / Math.PI) * qwtsplit);
   let kbob = Math.PI * dbob;
   let totalwire = ((n * kbob * split) + 0.4 * (n * kbob * split))/100;
+  let Rkg = pcu / Math.pow(ilrms, 2)
+  let kgcal = ((p * Math.pow((l * Math.pow(10, -6)), 2) * Math.pow(ilmax, 2))/(Math.pow(bmax, 2) * Rkg * Ku)) * Math.pow(10, 8);
+  let kgkgcal = kgref / kgcal;
+  let lg = ((u0 * (l * Math.pow(10, -6)) * Math.pow(ilmax, 2))/(Math.pow(bmax, 2) * ac)) * Math.pow(10, 4) * Math.pow(10, 3) ;
+  let ion = iout;
+  let voff = vin;
   let dvo = 0.001 * vout;
   let co = (dil / (8 * fs * dvo)) * 1000000;
   let cs = ((iout * tfall) / (2 * vin)) * Math.pow(10, 9);
   let rs = (((d) * (1 / fs)) / (2 * (cs / (Math.pow(10, 9)))));
+  
 
 
 
@@ -126,8 +145,13 @@ cal.addEventListener("click", () => {
   dwTSplit.value = dwtsplit.toFixed(4);
   kBob.value = kbob.toFixed(4);
   totalWire.value = totalwire.toFixed(4);
+  KGcal.value = kgcal.toFixed(4);
+  KGKGcal.value = kgkgcal.toFixed(4);
+  Lg.value = lg.toFixed(4);
+  Ion.value = ion.toFixed(2);
+  Voff.value = voff.toFixed(2);
   delVo.value = dvo.toFixed(4);
   Co.value = co.toFixed(4);
   Cs.value = cs.toFixed(2);
-  Rs.value = rs.toFixed(4);
+  Rs.value = rs.toFixed(2);
 });

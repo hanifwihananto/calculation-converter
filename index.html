@@ -19,7 +19,6 @@
 
   <!-- LINK CSS -->
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -99,7 +98,7 @@
               </div>
 
               <!-- INPUT IOUT -->
-              <div class="row g-3 align-items-center mb-2">
+              <div class="row g-3 align-items-center">
                 <div class="col-4">
                   <label for="iot" class="col-form-label">Iot</label>
                 </div>
@@ -160,7 +159,7 @@
               </div>
 
               <!-- INPUT AC -->
-              <div class="row g-3 align-items-center mb-2">
+              <div class="row g-3 align-items-center">
                 <div class="col-4">
                   <label for="ac" class="col-form-label">Ac</label>
                 </div>
@@ -191,22 +190,6 @@
                 </div>
               </div>
 
-               
-              <!-- INPUT Pcu -->
-              <!-- <div class="row g-3 align-items-center mb-2">
-                <div class="col-4">
-                  <label for="pcu" class="col-form-label">Pcu</label>
-                </div>
-                <div class="col-6">
-                  <input type="number" id="pcu" class="form-control" required="required">
-                </div>
-                <div class="col-2">
-                  <span id="pcu" class="form-text">
-                    W
-                  </span>
-                </div>
-              </div> -->
-
               <!-- INPUT TFALL -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-4">
@@ -222,7 +205,7 @@
                 </div>
               </div>
               
-              <!-- INPUT DELTA IL -->
+              <!-- INPUT Ri -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-4">
                   <label for="ri" class="col-form-label">rI</label>
@@ -349,7 +332,7 @@
               <!-- OUTPUT IL (AVG)) -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="ilAvg" class="col-form-label">IL(avg)</label>
+                  <label for="ilAvg" class="col-form-label">IL <sub>(avg)</sub></label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="ilAvg" class="form-control" readonly>
@@ -361,13 +344,10 @@
                 </div>
               </div>
 
-            </div>
-
-            <div class="col-md-3 col-xs-12">
               <!-- OUTPUT IL(MAX) -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="ilMax" class="col-form-label">IL(max)</label>
+                  <label for="ilMax" class="col-form-label">IL <sub>(max)</sub></label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="ilMax" class="form-control" readonly>
@@ -378,6 +358,10 @@
                   </span>
                 </div>
               </div>
+
+            </div>
+
+            <div class="col-md-3 col-xs-12">
 
               <!-- OUTPUT N -->
               <div class="row g-3 align-items-center mb-2">
@@ -397,7 +381,7 @@
               <!-- OUTPUT IL(rms) -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="ilRms" class="col-form-label">I(rms)L</label>
+                  <label for="ilRms" class="col-form-label">I <sub>(rms)L </sub></label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="ilRms" class="form-control" readonly>
@@ -440,14 +424,10 @@
                 </div>
               </div>
 
-            </div>
-
-            <div class="col-md-3 col-xs-12">
-
               <!-- OUTPUT IL(rms) split -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="ilRmsSplit" class="col-form-label">IL(rms)split</label>
+                  <label for="ilRmsSplit" class="col-form-label">IL(rms) <sub>split</sub> </label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="ilRmsSplit" class="form-control" readonly>
@@ -462,7 +442,7 @@
               <!-- OUTPUT QW(T) SPLIT -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="qwtsplit" class="col-form-label">qw(t)split</label>
+                  <label for="qwtsplit" class="col-form-label">qw(t) <sub>split</sub></label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="qwtsplit" class="form-control" readonly>
@@ -474,10 +454,14 @@
                 </div>
               </div>
 
+            </div>
+
+            <div class="col-md-3 col-xs-12">   
+              
               <!-- OUTPUT DW(T) SPLIT -->
               <div class="row g-3 align-items-center mb-2">
                 <div class="col-5">
-                  <label for="dwtsplit" class="col-form-label">dw(t)split</label>
+                  <label for="dwtsplit" class="col-form-label">dw(t) <sub>split</sub></label>
                 </div>
                 <div class="col-6">
                   <input type="number" id="dwtsplit" class="form-control" readonly>
@@ -502,7 +486,6 @@
                     cm
                   </span>
                 </div>
-
               </div>
 
               <!-- OUTPUT TOTAL WIRE -->
@@ -520,9 +503,84 @@
                 </div>
               </div>
 
+              <!-- OUTPUT KG CAL -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5">
+                  <label for="kgcal" class="col-form-label">KG <sub>Cal</sub></label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="kgcal" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="kgcal" class="form-text">
+                    cm<sup>5</sup>
+                  </span>
+                </div>
+              </div>
+
+              <!-- OUTPUT KG / KG CAL -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5">
+                  <label for="kgkal" class="col-form-label">KG / KG <sub>Cal</sub></label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="kgkal" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="kgkal" class="form-text">
+                    
+                  </span>
+                </div>
+              </div>
+
+              <!-- OUTPUT lg -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5">
+                  <label for="lg" class="col-form-label">lg</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="lg" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="lg" class="form-text">
+                    mm
+                  </span>
+                </div>
+              </div>
+
             </div>
 
             <div class="col-md-3 col-xs-12">
+
+              <!-- OUTPUT I ON -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5 col-md-3">
+                  <label for="ion" class="col-form-label">I <sub>ON</sub></label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="ion" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="ion" class="form-text">
+                    A
+                  </span>
+                </div>
+              </div>
+
+              <!-- OUTPUT Voff -->
+              <div class="row g-3 align-items-center mb-2">
+                <div class="col-5 col-md-3">
+                  <label for="voff" class="col-form-label">V <sub>OFF</sub></label>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="voff" class="form-control" readonly>
+                </div>
+                <div class="col-1">
+                  <span id="voff" class="form-text">
+                    V   
+                  </span>
+                </div>
+              </div>
 
               <!-- OUTPUT DELTA VO -->
               <div class="row g-3 align-items-center mb-2">

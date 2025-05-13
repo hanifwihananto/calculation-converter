@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "g:/My Drive/EEPIS/KULIAH/MATKUL TUGAS/SMT 4/11 WORKSHOP KOMPONEN MAGNETIK DAN ELEKTRONIKA DAYA/WEBSITE APLIKASI/WEBSITE",
+      "program": "g:/My Drive/EEPIS/KULIAH/MATKUL TUGAS/SMT 4/11 WORKSHOP KOMPONEN MAGNETIK DAN ELEKTRONIKA DAYA/WEBSITE APLIKASI/WEBSITE/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
