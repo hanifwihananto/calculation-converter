@@ -2,6 +2,10 @@ body {
   font-family: Poppins, sans-serif;
 }
 
+header {
+  background-color: white;
+}
+
 .logo-pens {
   width: 120px;
 }
@@ -13,6 +17,11 @@ h1 {
 .logo-himaelin {
   width: 120px;
 }
+
+.input {
+  padding-top: 200px;
+}
+
 h2 {
   text-align: center;
   font-size: 28px;

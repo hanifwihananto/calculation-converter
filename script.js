@@ -1,12 +1,3 @@
-// TAB
-const links = document.querySelectorAll('.nav-link');
-links.forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
-  }
-});
-
-
 // FORM
 const formInput = document.querySelector("#formInput");
 const formOutput = document.querySelector("#formOutput");
@@ -21,8 +12,8 @@ reset.addEventListener("click", () => {
 });
 
 // INPUT
-let vinV = document.querySelector("#vsMax");
-let vinMin = document.querySelector("#vsMin");
+let vsMax = document.querySelector("#vsMax");
+let vsMin = document.querySelector("#vsMin");
 let voutV = document.querySelector("#vout");
 let ioutV = document.querySelector("#iout");
 let fsV = document.querySelector("#fs"); // Convert kHz to Hz
@@ -62,18 +53,35 @@ let Co = document.querySelector("#Co");
 let Cs = document.querySelector("#cs");
 let Rs = document.querySelector("#rs");
 
+let currentMode = "buck"; // default mode
+
 // BTN DEFAULT
 set.addEventListener("click", () => {
-  vinV.value = 36;
-  vinMin.value = 25;
-  voutV.value = 15;
-  ioutV.value = 2.2;
+  if (currentMode === "buck") {
+    vsMax.value = 36;
+    vsMin.value = 25;
+    voutV.value = 15;
+    ioutV.value = 2.2;
+    splitV.value = 10;
+  } else if (currentMode === "boost") {
+    vsMax.value = 15;
+    vsMin.value = 12;
+    voutV.value = 30;
+    ioutV.value = 2;
+    splitV.value = 16;
+  } else if (currentMode === "buckboost") {
+    vsMax.value = 30;
+    vsMin.value = 20;
+    voutV.value = -24;
+    ioutV.value = 1.45;
+    splitV.value = 26;
+  }
+
   fsV.value = 40;
   vfV.value = 1.5;
   tfallV.value = 58;
   bmaxV.value = 0.25;
   acV.value = 1.96;
-  splitV.value = 10;
   riV.value = 20;
   kgrefV.value = 0.82;
 });
@@ -81,7 +89,7 @@ set.addEventListener("click", () => {
 // BTN CALCULATION
 cal.addEventListener("click", () => {
   if (
-    vinV.value == "" &&
+    vsMax.value == "" &&
     voutV.value == "" &&
     ioutV.value == "" &&
     fsV.value == "" &&
@@ -96,7 +104,8 @@ cal.addEventListener("click", () => {
   }
 
   // RUMUS
-  let vin = parseFloat(vinV.value);
+  let vsmax = parseFloat(vsMax.value);
+  let vsmin = parseFloat(vsMin.value);
   let vout = parseFloat(voutV.value);
   let iout = parseFloat(ioutV.value);
   let fs = parseFloat(fsV.value) * 1000;
@@ -112,12 +121,49 @@ cal.addEventListener("click", () => {
   let pcu = 1.5;
   let kgref = parseFloat(kgrefV.value);
 
-  let d = vout / vin;
   let r = vout / iout;
-  let ilavg = vout / r;
-  let dil = ri * ilavg;
-  let l =
-    (1 / fs) * (vin - vout) * ((vout + vf) / (vin + vf)) * (1 / dil) * 1000000;
+  let dvo = 0.001 * vout;
+
+  let d, ilavg, l, co, ion, voff;
+  if (currentMode === "buck") {
+    d = vout / vsmax;
+    ilavg = vout / r;
+    dil = ri * ilavg;
+    l =
+      (1 / fs) *
+      (vsmax - vout) *
+      ((vout + vf) / (vsmax + vf)) *
+      (1 / dil) *
+      1000000;
+    co = (dil / (8 * fs * dvo)) * 1000000;
+    ion = iout;
+    voff = vsmax;
+  } else if (currentMode === "boost") {
+    d = 1 - vsmin / vout;
+    ilavg = vsmin / (Math.pow(1 - d, 2) * r);
+    dil = ri * ilavg;
+    l =
+      (1 / fs) *
+      (vout + vf - vsmin) *
+      (vsmin / (vout + vf)) *
+      (1 / dil) *
+      1000000;
+    co = ((vout * d) / (r * dvo * fs)) * 1000000;
+    ion = iout * (vout / vsmin);
+    voff = vout;
+  } else if (currentMode === "buckboost") {
+    d = -vout / vsmin / (1 + -vout / vsmin);
+    r = -vout / iout;
+    ilavg = (vsmin * d) / (r * Math.pow((1 - d), 2));
+    dil = ri * ilavg;
+    l =
+      (1 / fs) *
+      (-vout + vf) *
+      (vsmin / ((-vout + vf) + vsmin)) *
+      (1 / dil) *
+      1000000;
+  }
+
   let ilmax = ilavg + dil / 2;
   let n = (((l / 1000000) * ilmax) / (bmax * ac)) * Math.pow(10, 4);
   let ilrms = Math.sqrt(
@@ -129,7 +175,8 @@ cal.addEventListener("click", () => {
   let qwtsplit = ilrmssplit / j;
   let dwtsplit = Math.sqrt((4 / Math.PI) * qwtsplit);
   let kbob = Math.PI * dbob;
-  let totalwire = (n * kbob * split + 0.4 * (n * kbob * split)) / 100;
+  let totalwire =
+    ((Math.ceil(n) * kbob) / 100) * split + 0.4 * (((n * kbob) / 100) * split);
   let Rkg = pcu / Math.pow(ilrms, 2);
   let kgcal =
     ((p * Math.pow(l * Math.pow(10, -6), 2) * Math.pow(ilmax, 2)) /
@@ -141,11 +188,8 @@ cal.addEventListener("click", () => {
       (Math.pow(bmax, 2) * ac)) *
     Math.pow(10, 4) *
     Math.pow(10, 3);
-  let ion = iout;
-  let voff = vin;
-  let dvo = 0.001 * vout;
-  let co = (dil / (8 * fs * dvo)) * 1000000;
-  let cs = ((iout * tfall) / (2 * vin)) * Math.pow(10, 9);
+
+  let cs = ((ion * tfall) / (2 * voff)) * Math.pow(10, 9);
   let rs = (d * (1 / fs)) / (2 * (cs / Math.pow(10, 9)));
 
   duty.value = d.toFixed(2) * 100;
@@ -172,4 +216,23 @@ cal.addEventListener("click", () => {
   Co.value = co.toFixed(2);
   Cs.value = cs.toFixed(2);
   Rs.value = rs.toFixed(2);
+});
+
+// Menangani klik menu navbar
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // Tidak reload halaman
+
+      // Ganti kelas 'active' untuk highlight link aktif
+      navLinks.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
+
+      // Ganti mode berdasarkan text link
+      const mode = this.textContent.trim().toLowerCase().replace("-", "");
+      currentMode = mode;
+    });
+  });
 });
